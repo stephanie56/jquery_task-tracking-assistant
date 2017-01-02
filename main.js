@@ -1,10 +1,26 @@
+// Pomodoro clock to-do
+// var defaultTime = 25; var defaultBreak = 5;
+// 1. onclick [somewhere] -> start the clock
+// - function startClock();
+// - function timer();
+// - function displayTime();
+// 2. onclick [somewhere] -> stop the clock
+// -  function stopClock();
+// 3. onclick [somewhere] to increase or decrease the # of defaultTime and defaultBreak;
+// - function increaseNum();
+// - function decreaseNun();
 
-function countDown(seconds){
-  var now = Date.now();
-  var then = now + seconds * 1000;
+$(document).ready(function(){
+  var displayTime = parseInt($("#timer").html());
+  var tempt;
+  $("#increase").click(function(){
+   displayTime++;
+   alert(displayTime);
+  });
+  $("#decrease").click(function(){
+    displayTime--;
+    alert(displayTime);
+  });
 
-  setInterval(function(){
-  var secondsLeft = Math.floor((then - Date.now())/1000);
-  console.log(secondsLeft);
-  }, 1000);
-}
+  
+});
