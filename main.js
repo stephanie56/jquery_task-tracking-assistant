@@ -12,15 +12,29 @@
 
 $(document).ready(function(){
   var displayTime = parseInt($("#timer").html());
-  var tempt;
   $("#increase").click(function(){
-   displayTime++;
-   alert(displayTime);
+    displayTime = changeTime(displayTime, "++");
+    $("#timer").html(displayTime);
   });
   $("#decrease").click(function(){
-    displayTime--;
-    alert(displayTime);
+    displayTime = changeTime(displayTime, "--");
+    $("#timer").html(displayTime);
   });
 
-  
 });
+
+function changeTime(time, action){
+  if(action == "++"){
+      if(time < 360)
+        time++;
+      else
+        return time;
+    }
+    else{
+      if(time > 1)
+        time--;
+      else
+        return time;
+    }
+  return time;
+}
