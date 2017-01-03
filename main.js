@@ -64,7 +64,8 @@ $(document).ready(function(){
     var then = now + time;
     timer = setInterval(function(){
       var secondsLeft = Math.floor((then - Date.now())/1000);
-      displayTime(secondsLeft);
+      if(secondsLeft == 0){clearInterval(timer);}
+      else{displayTime(secondsLeft);}
     },1000);
   }
 
