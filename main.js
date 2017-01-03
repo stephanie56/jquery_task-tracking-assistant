@@ -1,27 +1,17 @@
-// Pomodoro clock to-do
-// var defaultTime = 25; var defaultBreak = 5;
-// 1. onclick [somewhere] -> start the clock
-// - function startClock();
-// - function timer();
-// - function displayTime();
-// 2. onclick [somewhere] -> stop the clock
-// -  function stopClock();
-// (done) 3. onclick [somewhere] to increase or decrease the # of defaultTime and defaultBreak;
-// - function increaseNum();
-// - function decreaseNun();
+/** Pomodoro Clock **/ 
 
 $(document).ready(function(){
-  var oBreak = {breakDuration:3, tag:"Break Time"};
-  var oPomo = {pomoDuration:10, tag:"Pomodoro Time"};
+  var oBreak = {duration:3, tag:"Break Time"};
+  var oPomo = {duration:10, tag:"Pomodoro Time"};
   var timer = null;
   /** display default breaktime & pomotime **/
-  $("#controlBreak").html(oBreak.breakDuration);
-  $("#controlPomo").html(oPomo.pomoDuration);
-  $("#pomoClock").html(displayTime(oPomo.pomoDuration*60));
+  $("#controlBreak").html(oBreak.duration);
+  $("#controlPomo").html(oPomo.duration);
+  $("#pomoClock").html(displayTime(oPomo.duration*60));
 
   $("#pomoClock").click(function(){
    if(timer == null){
-     countDown(oPomo.pomoDuration, oBreak.breakDuration);
+     countDown(oPomo, oBreak);
    }
    else{
      return 0;
@@ -35,25 +25,25 @@ $(document).ready(function(){
 
   $("#increaseBreak").click(function(){
     clearTimer();
-    oBreak.breakDuration = controlDuration(oBreak.breakDuration, "++");
-    $("#controlBreak").html(oBreak.breakDuration);
+    oBreak.duration = controlDuration(oBreak.duration, "++");
+    $("#controlBreak").html(oBreak.duration);
   });
   $("#decreaseBreak").click(function(){
     clearTimer();
-    oBreak.breakDuration = controlDuration(oBreak.breakDuration, "--");
-    $("#controlBreak").html(oBreak.breakDuration);
+    oBreak.duration = controlDuration(oBreak.duration, "--");
+    $("#controlBreak").html(oBreak.duration);
   });
   $("#increasePomo").click(function(){
     clearTimer();
-    oPomo.pomoDuration = controlDuration(oPomo.pomoDuration, "++");
-    $("#controlPomo").html(oPomo.pomoDuration);
-    $("#pomoClock").html(displayTime(oPomo.pomoDuration*60));
+    oPomo.duration = controlDuration(oPomo.duration, "++");
+    $("#controlPomo").html(oPomo.duration);
+    $("#pomoClock").html(displayTime(oPomo.duration*60));
   });
   $("#decreasePomo").click(function(){
     clearTimer();
-    oPomo.pomoDuration = controlDuration(oPomo.pomoDuration, "--");
-    $("#controlPomo").html(oPomo.pomoDuration);
-    $("#pomoClock").html(displayTime(oPomo.pomoDuration*60));
+    oPomo.duration = controlDuration(oPomo.duration, "--");
+    $("#controlPomo").html(oPomo.duration);
+    $("#pomoClock").html(displayTime(oPomo.duration*60));
   });
 
 
@@ -67,9 +57,9 @@ $(document).ready(function(){
     }
   }
 
-  function countDown(currentDuration,nextDuration){
-    //var tag = ;
-    var time = currentDuration * 60 * 1000;
+  function countDown(currentObj,nextObj){
+    var tag = currentObj.tag;
+    var time = currentObj.duration * 60 * 1000;
     var now = Date.now();
     var then = now + time;
 
@@ -77,9 +67,11 @@ $(document).ready(function(){
       var secondsLeft = Math.floor((then - Date.now())/1000);
       if(secondsLeft == 0){
         clearInterval(timer);
-        countDown(nextDuration,currentDuration);
+        countDown(nextObj,currentObj);
       }
-      else {displayTime(secondsLeft);}
+      else {
+        $("#tagName").html(tag);
+        displayTime(secondsLeft);}
     }, 1000);
   }
 
