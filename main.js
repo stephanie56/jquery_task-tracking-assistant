@@ -16,7 +16,7 @@ $(document).ready(function(){
   /** display default breaktime & pomotime **/
   $("#controlBreak").html(breakDuration);
   $("#controlPomo").html(pomoDuration);
-  $("#pomoClock").html(pomoDuration);
+  $("#pomoClock").html(displayTime(pomoDuration*60));
 
   $("#pomoClock").click(function(){
    countDown(pomoDuration);
@@ -33,12 +33,12 @@ $(document).ready(function(){
   $("#increasePomo").click(function(){
     pomoDuration = controlDuration(pomoDuration, "++");
     $("#controlPomo").html(pomoDuration);
-    //$("#pomoClock").html(pomoDuration);
+    $("#pomoClock").html(displayTime(pomoDuration*60));
   });
   $("#decreasePomo").click(function(){
     pomoDuration = controlDuration(pomoDuration, "--");
     $("#controlPomo").html(pomoDuration);
-   // $("#pomoClock").html(pomoDuration);
+    $("#pomoClock").html(displayTime(pomoDuration*60));
   });
 
 });
@@ -57,7 +57,20 @@ function countDown(duration){
   var now = Date.now();
   var then = now + time;
   setInterval(function(){
-    var timeLeft = Math.floor((then - Date.now())/1000);
-    $("#pomoClock").html(timeLeft);
+    var secondsLeft = Math.floor((then - Date.now())/1000);
+    displayTime(secondsLeft);
   },1000);
+
+}
+
+function displayTime(seconds){
+  var hour = (seconds>3600) ? Math.floor(seconds/60/60) : 0;
+  var minute = Math.floor(seconds/60);
+  var second = seconds%60;
+  var displayHour = (hour == 0) ? "" : (addZero(hour) + ":");
+  $("#pomoClock").html(displayHour + addZero(minute) + ":" + addZero(second));
+}
+
+function addZero(num){
+  return(num<10) ? ("0"+num) : num;
 }
