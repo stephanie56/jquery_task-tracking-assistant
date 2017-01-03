@@ -6,7 +6,7 @@
 // - function displayTime();
 // 2. onclick [somewhere] -> stop the clock
 // -  function stopClock();
-// 3. onclick [somewhere] to increase or decrease the # of defaultTime and defaultBreak;
+// (done) 3. onclick [somewhere] to increase or decrease the # of defaultTime and defaultBreak;
 // - function increaseNum();
 // - function decreaseNun();
 
@@ -18,32 +18,46 @@ $(document).ready(function(){
   $("#controlPomo").html(pomoDuration);
   $("#pomoClock").html(pomoDuration);
 
+  $("#pomoClock").click(function(){
+   countDown(pomoDuration);
+  });
+
   $("#increaseBreak").click(function(){
-    breakDuration = changeTime(breakDuration, "++");
+    breakDuration = controlDuration(breakDuration, "++");
     $("#controlBreak").html(breakDuration);
   });
   $("#decreaseBreak").click(function(){
-    breakDuration = changeTime(breakDuration, "--");
+    breakDuration = controlDuration(breakDuration, "--");
     $("#controlBreak").html(breakDuration);
   });
   $("#increasePomo").click(function(){
-    pomoDuration = changeTime(pomoDuration, "++");
+    pomoDuration = controlDuration(pomoDuration, "++");
     $("#controlPomo").html(pomoDuration);
-    $("#pomoClock").html(pomoDuration);
+    //$("#pomoClock").html(pomoDuration);
   });
   $("#decreasePomo").click(function(){
-    pomoDuration = changeTime(pomoDuration, "--");
+    pomoDuration = controlDuration(pomoDuration, "--");
     $("#controlPomo").html(pomoDuration);
-    $("#pomoClock").html(pomoDuration);
+   // $("#pomoClock").html(pomoDuration);
   });
 
 });
 
-function changeTime(duration, action){
+function controlDuration(duration, action){
   if(action == "++"){
     return (duration < 360) ? (duration + 1) : duration;
   }
   else{
     return (duration > 1) ? (duration - 1) : duration;
   }
+}
+
+function countDown(duration){
+  var time = duration * 60 * 1000;
+  var now = Date.now();
+  var then = now + time;
+  setInterval(function(){
+    var timeLeft = Math.floor((then - Date.now())/1000);
+    $("#pomoClock").html(timeLeft);
+  },1000);
 }
