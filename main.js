@@ -20,7 +20,7 @@ $(document).ready(function(){
   $("#pomoClock").html(displayTime(pomoDuration*60));
 
   $("#pomoClock").click(function(){
-   countDown(pomoDuration);
+   countDown(pomoDuration, breakDuration);
   });
 
   // when click on stop button - stop the timer
@@ -58,15 +58,21 @@ $(document).ready(function(){
     }
   }
 
-  function countDown(duration){
-    var time = duration * 60 * 1000;
+  function countDown(currentDuration,nextDuration){
+    var time = currentDuration * 60 * 1000;
     var now = Date.now();
     var then = now + time;
+
     timer = setInterval(function(){
       var secondsLeft = Math.floor((then - Date.now())/1000);
-      if(secondsLeft == 0){clearInterval(timer);}
-      else{displayTime(secondsLeft);}
-    },1000);
+      if(secondsLeft == 0){
+        clearInterval(timer);
+        countDown(nextDuration,currentDuration);
+      }
+      else{
+        displayTime(secondsLeft);
+      }
+    }, 1000);
   }
 
   function displayTime(seconds){
