@@ -11,30 +11,39 @@
 // - function decreaseNun();
 
 $(document).ready(function(){
-  var displayTime = parseInt($("#timer").html());
-  $("#increase").click(function(){
-    displayTime = changeTime(displayTime, "++");
-    $("#timer").html(displayTime);
+  var breakDuration = 3;
+  var pomoDuration = 10;
+  /** display default breaktime & pomotime **/
+  $("#controlBreak").html(breakDuration);
+  $("#controlPomo").html(pomoDuration);
+  $("#pomoClock").html(pomoDuration);
+
+  $("#increaseBreak").click(function(){
+    breakDuration = changeTime(breakDuration, "++");
+    $("#controlBreak").html(breakDuration);
   });
-  $("#decrease").click(function(){
-    displayTime = changeTime(displayTime, "--");
-    $("#timer").html(displayTime);
+  $("#decreaseBreak").click(function(){
+    breakDuration = changeTime(breakDuration, "--");
+    $("#controlBreak").html(breakDuration);
+  });
+  $("#increasePomo").click(function(){
+    pomoDuration = changeTime(pomoDuration, "++");
+    $("#controlPomo").html(pomoDuration);
+    $("#pomoClock").html(pomoDuration);
+  });
+  $("#decreasePomo").click(function(){
+    pomoDuration = changeTime(pomoDuration, "--");
+    $("#controlPomo").html(pomoDuration);
+    $("#pomoClock").html(pomoDuration);
   });
 
 });
 
-function changeTime(time, action){
+function changeTime(duration, action){
   if(action == "++"){
-      if(time < 360)
-        time++;
-      else
-        return time;
-    }
-    else{
-      if(time > 1)
-        time--;
-      else
-        return time;
-    }
-  return time;
+    return (duration < 360) ? (duration + 1) : duration;
+  }
+  else{
+    return (duration > 1) ? (duration - 1) : duration;
+  }
 }
