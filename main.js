@@ -13,6 +13,7 @@
 $(document).ready(function(){
   var breakDuration = 3;
   var pomoDuration = 10;
+  var timer=null;
   /** display default breaktime & pomotime **/
   $("#controlBreak").html(breakDuration);
   $("#controlPomo").html(pomoDuration);
@@ -20,6 +21,11 @@ $(document).ready(function(){
 
   $("#pomoClock").click(function(){
    countDown(pomoDuration);
+  });
+
+  // when click on stop button - stop the timer
+  $("#stop").click(function(){
+    clearInterval(timer);
   });
 
   $("#increaseBreak").click(function(){
@@ -41,36 +47,37 @@ $(document).ready(function(){
     $("#pomoClock").html(displayTime(pomoDuration*60));
   });
 
-});
 
-function controlDuration(duration, action){
-  if(action == "++"){
-    return (duration < 360) ? (duration + 1) : duration;
+  /** main functions **/
+  function controlDuration(duration, action){
+    if(action == "++"){
+      return (duration < 360) ? (duration + 1) : duration;
+    }
+    else{
+      return (duration > 1) ? (duration - 1) : duration;
+    }
   }
-  else{
-    return (duration > 1) ? (duration - 1) : duration;
+
+  function countDown(duration){
+    var time = duration * 60 * 1000;
+    var now = Date.now();
+    var then = now + time;
+    timer = setInterval(function(){
+      var secondsLeft = Math.floor((then - Date.now())/1000);
+      displayTime(secondsLeft);
+    },1000);
   }
-}
 
-function countDown(duration){
-  var time = duration * 60 * 1000;
-  var now = Date.now();
-  var then = now + time;
-  setInterval(function(){
-    var secondsLeft = Math.floor((then - Date.now())/1000);
-    displayTime(secondsLeft);
-  },1000);
+  function displayTime(seconds){
+    var hour = (seconds>3600) ? Math.floor(seconds/60/60) : 0;
+    var minute = Math.floor(seconds/60);
+    var second = seconds%60;
+    var displayHour = (hour == 0) ? "" : (addZero(hour) + ":");
+    $("#pomoClock").html(displayHour + addZero(minute) + ":" + addZero(second));
+  }
 
-}
+  function addZero(num){
+    return(num<10) ? ("0"+num) : num;
+  }
 
-function displayTime(seconds){
-  var hour = (seconds>3600) ? Math.floor(seconds/60/60) : 0;
-  var minute = Math.floor(seconds/60);
-  var second = seconds%60;
-  var displayHour = (hour == 0) ? "" : (addZero(hour) + ":");
-  $("#pomoClock").html(displayHour + addZero(minute) + ":" + addZero(second));
-}
-
-function addZero(num){
-  return(num<10) ? ("0"+num) : num;
-}
+}); // document.ready
