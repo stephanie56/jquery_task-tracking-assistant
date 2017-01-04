@@ -65,7 +65,7 @@ $(document).ready(function(){
 
     timer = setInterval(function(){
       var secondsLeft = Math.floor((then - Date.now())/1000) + 1;
-      if(secondsLeft == 0){
+      if(secondsLeft == -1){
         clearInterval(timer);
         countDown(nextObj,currentObj);
       }
