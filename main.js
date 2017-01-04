@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
   var oBreak = {duration:3, tag:"Break Time"};
-  var oPomo = {duration:10, tag:"Pomodoro Time"};
+  var oPomo = {duration:10, tag:"Session"};
   var timer = null;
   /** display default breaktime & pomotime **/
   $("#controlBreak").html(oBreak.duration);
