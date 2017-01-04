@@ -1,4 +1,4 @@
-/** Pomodoro Clock **/ 
+/** Pomodoro Clock **/
 
 $(document).ready(function(){
   var oBreak = {duration:3, tag:"Break Time"};
@@ -64,7 +64,7 @@ $(document).ready(function(){
     var then = now + time;
 
     timer = setInterval(function(){
-      var secondsLeft = Math.floor((then - Date.now())/1000);
+      var secondsLeft = Math.floor((then - Date.now())/1000) + 1;
       if(secondsLeft == 0){
         clearInterval(timer);
         countDown(nextObj,currentObj);
