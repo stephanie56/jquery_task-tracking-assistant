@@ -75,7 +75,7 @@ $(document).ready(function(){
       if(secondsLeft < 0){
         playAudio();
         if(tag != "Break Time"){
-          alert("Time to take a break sweatheart <3 ;)");
+          alert("Time to take a break sweatheart ♥\nDon't work too hard ;)");
         }
         clearInterval(timer);
         countDown(nextObj,currentObj);
