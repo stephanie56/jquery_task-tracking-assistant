@@ -68,6 +68,7 @@ $(document).ready(function(){
     var time = currentObj.duration * 60 * 1000;
     var now = Date.now();
     var then = now + time;
+    displayTime(currentObj.duration * 60 - 1);
 
     timer = setInterval(function(){
       var secondsLeft = Math.floor((then - Date.now())/1000);
@@ -78,7 +79,8 @@ $(document).ready(function(){
       }
       else {
         $("#tagName").html(tag);
-        displayTime(secondsLeft);
+        $("#pomoClock").html(displayTime(secondsLeft));
+        document.title = tag + " " + displayTime(secondsLeft);
       }
     }, 1000);
   }
@@ -88,7 +90,8 @@ $(document).ready(function(){
     var minute = Math.floor(seconds/60);
     var second = seconds%60;
     var displayHour = (hour == 0) ? "" : (addZero(hour) + ":");
-    $("#pomoClock").html(displayHour + addZero(minute) + ":" + addZero(second));
+    var time = displayHour + addZero(minute) + ":" + addZero(second);
+    return time;
   }
 
   function clearTimer (){
