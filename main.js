@@ -4,10 +4,16 @@ $(document).ready(function(){
   var oBreak = {duration:3, tag:"Break Time"};
   var oPomo = {duration:10, tag:"Session"};
   var timer = null;
+  var audioSrc = "doorbell.wav";
   /** display default breaktime & pomotime **/
   $("#controlBreak").html(oBreak.duration);
   $("#controlPomo").html(oPomo.duration);
   $("#pomoClock").html(displayTime(oPomo.duration*60));
+
+  $("#addtodo").click(function(){
+    oPomo.tag = $("#newtask").val();
+    $("#tagName").html(oPomo.tag);
+  });
 
   $("#pomoClock").click(function(){
    if(timer == null){
@@ -64,14 +70,16 @@ $(document).ready(function(){
     var then = now + time;
 
     timer = setInterval(function(){
-      var secondsLeft = Math.floor((then - Date.now())/1000) + 1;
-      if(secondsLeft == -1){
+      var secondsLeft = Math.floor((then - Date.now())/1000);
+      if(secondsLeft < 0){
+        playAudio();
         clearInterval(timer);
         countDown(nextObj,currentObj);
       }
       else {
         $("#tagName").html(tag);
-        displayTime(secondsLeft);}
+        displayTime(secondsLeft);
+      }
     }, 1000);
   }
 
@@ -90,6 +98,15 @@ $(document).ready(function(){
 
   function addZero(num){
     return(num<10) ? ("0"+num) : num;
+  }
+
+  function playAudio(){
+    var audio = new Audio();
+    audio.addEventListener("load",function(){
+      audio.play();
+    }, true);
+    audio.src = audioSrc;
+    audio.autoplay = true;
   }
 
 }); // document.ready
