@@ -74,6 +74,9 @@ $(document).ready(function(){
       var secondsLeft = Math.floor((then - Date.now())/1000);
       if(secondsLeft < 0){
         playAudio();
+        if(tag != "Break Time"){
+          alert("Time to take a break sweatheart <3 ;)");
+        }
         clearInterval(timer);
         countDown(nextObj,currentObj);
       }
