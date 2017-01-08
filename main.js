@@ -5,10 +5,13 @@ $(document).ready(function(){
   var oPomo = {duration:10, tag:"Session"};
   var timer = null;
   var audioSrc = "doorbell.wav";
+  var sumDuration = 0;
+  var sumMsg = "";
   /** display default breaktime & pomotime **/
   $("#controlBreak").html(oBreak.duration);
   $("#controlPomo").html(oPomo.duration);
   $("#pomoClock").html(displayTime(oPomo.duration*60));
+
 
   $("#addtodo").click(function(){
     oPomo.tag = $("#newtask").val();
@@ -75,7 +78,10 @@ $(document).ready(function(){
       if(secondsLeft < 0){
         playAudio();
         if(tag != "Break Time"){
+          sumDuration += time;
+          sumMsg = "You have worked on "+ tag + " for " + Math.round(sumDuration/1000/60) + " minutes.";
           alert("Time to take a break sweatheart ♥\nDon't work too hard ;)");
+          $("#sumMsg").html(sumMsg);
         }
         clearInterval(timer);
         countDown(nextObj,currentObj);
