@@ -8,32 +8,43 @@
   <link rel="stylesheet" href="style.css">
   </head>
   <body>
-  <div class="container">
-      <div class="btn-group">
-        <div id="breakTime" class="controlDuration">
-          <p>Break Length</p>
-          <button id="increaseBreak">+</button>
-          <div id="controlBreak" class="displayTime">3</div>
-          <button id="decreaseBreak">-</button>
-        </div>
+	<div class="container">
+	      <div class="row">
+	        <div class="col-xs-4 col-xs-offset-2">
+						<div id="breakTime" class="center-wrap">
+		          <p>Break Length</p>
+		          <button id="increaseBreak">+</button>
+		          <div id="controlBreak" class="displayTime">3</div>
+		          <button id="decreaseBreak">-</button>
+		        </div>
+	        </div><!--col-xs-6-->
+					<div class="col-xs-4">
+						<div id="pomoTime" class="center-wrap">
+		          <p>Session Length</p>
+		          <button id="increasePomo">+</button>
+		          <div id="controlPomo" class="displayTime">10</div>
+		          <button id="decreasePomo">-</button>
+		        </div>
+					</div><!--col-xs-6-->
+	    </div> <!-- row-->
+	   <div id="tagName">Session</div>
+	   <div id="pomoClock" class="startControl">10</div>
 
-        <div id="pomoTime" class="controlDuration">
-          <p>Session Length</p>
-          <button id="increasePomo">+</button>
-          <div id="controlPomo" class="displayTime">10</div>
-          <button id="decreasePomo">-</button>
-        </div>
-        <button id="stop">stop</button>
-    </div> <!-- btn group ends-->
-   <div id="tagName">Session</div>
-   <div id="pomoClock">10</div>
-  </div><!--container ends-->
-	<div id="todoList" class="container">
-		<input id="newtask" type="text">
-		<button id="addtodo" type="button" name="button">Add Task</button>
-		<div id="sumMsg">You haven't worked yet. Create a new task to start. <3</div>
-	</div><!-- to do list -->
+		 <div class="row">
+		 	<div class="col-xs-4 col-xs-offset-2">
+				<button id="start" class="startControl btn btn-lg btn-warning btn-group"><i class="glyphicon glyphicon-play"></i> Start</button>
+			</div><!-- start btn -->
+		 	<div class="col-xs-4" >
+				<button id="stop" class="btn btn-lg btn-danger btn-group"><i class="glyphicon glyphicon-stop"></i> Stop</button>
+			</div><!-- start btn -->
+		 </div><!-- row / start and stop btn -->
+		<div id="todoList">
+			<input id="newtask" type="text">
+			<button id="addtodo" class="btn">Add Task</button>
+			<div id="sumMsg">You haven't worked yet. Add a new task to start! <i class="glyphicon glyphicon-heart" style="color:red;"></i></div>
+		</div><!-- to do list -->
 
+	</div><!-- container ends -->
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="main.js"></script>

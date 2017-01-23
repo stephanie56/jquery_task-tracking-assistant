@@ -18,7 +18,7 @@ $(document).ready(function(){
     $("#tagName").html(oPomo.tag);
   });
 
-  $("#pomoClock").click(function(){
+  $(".startControl").click(function(){
    if(timer == null){
      countDown(oPomo, oBreak);
    }

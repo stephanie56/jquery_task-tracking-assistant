@@ -9,49 +9,73 @@ body{
 }
 
 .container{
-  width:500px;
-  margin:0 auto;
+  max-width:500px;
+  /*border:black solid 3px;*/
 }
 
-.btn-group{
-  width:100%;
-  float:left;
-}
-.controlDuration {
-  float:left;
-  margin-left:10px;
+.center-wrap {
   text-align:center;
-  padding:20px;
+  margin:0 auto;
+  margin-top:30px;
+
 }
 
 .displayTime{
   display:inline;
+  padding: 0 10px;
+  font-size:1.2em;
 }
 
 #tagName {
   font-size:3rem;
+  font-weight:400;
+  font-family:'Raleway', sans-serif;
   color:#fff;
   text-align:center;
-  text-transform: uppercase;
+  margin-top: 30px;
 }
 
 #pomoClock{
-  font-size:8rem;
+  font-size:7rem;
   font-weight:400;
   text-align:center;
-  float:left;
-  width:350px;
-  height:350px;
-  line-height:350px;
+  width:300px;
+  height:300px;
+  line-height:300px;
   color:#fff;
   border:#fff 3px solid;
   border-radius:50%;
-  margin-top:50px;
+  margin: 20px auto;
   cursor:pointer;
 }
 
+.btn-group {
+  display:block;
+  margin:0 auto;
+  width:100%;
+  background-color:#444;
+  border:none 0px;
+}
+
 #todoList {
-  margin-top:20px;
+  margin:50px auto 50px;
+  text-align:center;
+}
+
+#todoList input[type=text]{
+  border:0px none;
+  border-radius:5px;
+  height:34px;
+  width:200px;
+  padding-left:10px;
+}
+
+#todoList button{
+  background-color:#5ea89f;
+  color:white;
+  margin-left:5px;
+  border:0px none;
+  height:34px;
 }
 
 #sumMsg {
