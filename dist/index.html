@@ -35,20 +35,22 @@
 
 	   <div class="timer">10</div>
 
-		<div class="timer-btn">
-			<button id="start" class="btn"><i class="fa fa-play-circle"></i> Start</button>
-			<button id="stop" class="btn"><i class="fa fa-pause-circle"></i> Stop</button>
+		<div class="timer-control">
+			<button id="start" class="btn btn--large"><i class="fa fa-play-circle"></i> Start</button>
+			<button id="stop" class="btn btn--large"><i class="fa fa-pause-circle"></i> Stop</button>
 		</div>
 
-		<div id="todoList">
-			<input id="newtask" type="text">
-			<button id="addtodo" class="btn">Add Task</button>
-			<div id="sumMsg">You haven't worked yet. Add a new task to start! <i class="glyphicon glyphicon-heart" style="color:red;"></i></div>
-		</div><!-- to do list -->
+		<div class="todo">
+			<input class="todo__input" type="text">
+			<button class="btn btn--green">Add Task</button>
+		</div><!-- To Do -->
 
-	</div><!-- container ends -->
+		<div id="sumMsg">You haven't worked yet. Add a new task to start!</div>
+
+	</div><!-- app ends -->
 
 		<!-- javascripts -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="bundle.js"></script>
   </body>
 </html>

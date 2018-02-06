@@ -9,15 +9,19 @@
   background-color: #444;
   color: white;
   font-size: 1rem; }
+  .btn--large {
+    padding: 0.8rem 3rem; }
+  .btn--green {
+    background-color: #60A89F;
+    border-color: #60A89F; }
 
 .counter {
-  border: 1px solid grey;
   max-width: 600px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-around;
+  margin-top: 1rem; }
   .counter__wrapper {
-    border: red 1px solid;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,7 +31,7 @@
   font-size: 3rem;
   font-weight: 400;
   font-family: 'Raleway', sans-serif;
-  color: #fff;
+  color: white;
   text-align: center;
   margin-top: 30px; }
 
@@ -38,31 +42,36 @@
   width: 280px;
   height: 280px;
   line-height: 280px;
-  color: #fff;
-  border: #fff 3px solid;
+  color: white;
+  border: white 3px solid;
   border-radius: 50%;
   margin: 20px auto;
   cursor: pointer; }
 
-#todoList {
-  margin: 30px auto 50px;
-  text-align: center; }
+.timer-control {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around; }
 
-#todoList input[type=text] {
-  border: 0px none;
-  border-radius: 5px;
-  height: 34px;
-  width: 200px;
-  padding-left: 10px; }
-
-#todoList button {
-  background-color: #5ea89f;
-  color: white;
-  margin-left: 5px;
-  border: 0px none;
-  height: 34px; }
+.todo {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem; }
+  .todo__input {
+    border: 0px none;
+    outline: none;
+    border-radius: 5px;
+    min-width: 200px;
+    font-size: 1rem;
+    padding: 0.8rem;
+    flex: 2;
+    margin-right: 0.6rem; }
 
 #sumMsg {
   margin-top: 20px;
   color: #fff;
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  text-align: center; }

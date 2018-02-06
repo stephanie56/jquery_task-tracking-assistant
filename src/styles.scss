@@ -1,31 +1,46 @@
+$dark-grey: #444;
+$theme-green: #00D1B2;
+$dark-green: #60A89F;
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,300italic,800');
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,800,900');
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,800,900');
 
+@mixin flex-center($max-width, $justify-option) {
+  max-width: $max-width;
+  margin: 0 auto;
+  display: flex;
+  justify-content: $justify-option;
+}
+
 body{
-  background-color:#00D1B2;
+  background-color: $theme-green;
   font-family:'Roboto', sans-serif;
 }
 
 .btn {
   padding: 0.8rem 2.4rem;
-  border: 1px solid #444;
+  border: 1px solid $dark-grey;
   border-radius: 4px;
-  background-color: #444;
+  background-color: $dark-grey;
   color: white;
   font-size: 1rem;
+
+  &--large {
+    padding: 0.8rem 3rem;
+  }
+
+  &--green {
+    background-color: $dark-green;
+    border-color: $dark-green;
+  }
 }
 
 .counter {
-  border: 1px solid grey;
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-around;
+  @include flex-center(600px, space-around);
+  margin-top: 1rem;
 
   &__wrapper {
-    border: red 1px solid;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,8 +52,8 @@ body{
   font-size:3rem;
   font-weight:400;
   font-family:'Raleway', sans-serif;
-  color:#fff;
-  text-align:center;
+  color: white;
+  text-align: center;
   margin-top: 30px;
 }
 
@@ -49,36 +64,37 @@ body{
   width:280px;
   height:280px;
   line-height:280px;
-  color:#fff;
-  border:#fff 3px solid;
-  border-radius:50%;
+  color: white;
+  border: white 3px solid;
+  border-radius: 50%;
   margin: 20px auto;
   cursor:pointer;
 }
 
-#todoList {
-  margin:30px auto 50px;
-  text-align:center;
+.timer-control {
+  @include flex-center(400px, space-around);
 }
 
-#todoList input[type=text]{
-  border:0px none;
-  border-radius:5px;
-  height:34px;
-  width:200px;
-  padding-left:10px;
+.todo {
+  @include flex-center(480px, center);
+  margin-top: 2rem;
+
+  &__input {
+    border:0px none;
+    outline: none;
+    border-radius:5px;
+    min-width: 200px;
+    font-size: 1rem;
+    padding: 0.8rem;
+    flex: 2;
+    margin-right: 0.6rem;
+  }
 }
 
-#todoList button{
-  background-color:#5ea89f;
-  color:white;
-  margin-left:5px;
-  border:0px none;
-  height:34px;
-}
 
 #sumMsg {
   margin-top:20px;
   color:#fff;
   font-size:1.2em;
+  text-align: center;
 }
