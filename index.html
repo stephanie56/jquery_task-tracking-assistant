@@ -3,31 +3,36 @@
 <head lang="en">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pomodoro Clock</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <title>Mia - Your Reliable Task Tracking Assistant</title>
   <link rel="stylesheet" href="css/style.css">
-	
+
   </head>
   <body>
-	<div class="container">
-	      <div class="row">
-	        <div class="col-xs-4 col-xs-offset-2">
-						<div id="breakTime" class="center-wrap">
-		          <p>Set Break Time</p>
-		          <button id="increaseBreak">+</button>
-		          <div id="controlBreak" class="displayTime">3</div>
-		          <button id="decreaseBreak">-</button>
-		        </div>
-	        </div><!--col-xs-6-->
-					<div class="col-xs-4">
-						<div id="pomoTime" class="center-wrap">
-		          <p>Set Work Time</p>
-		          <button id="increasePomo">+</button>
-		          <div id="controlPomo" class="displayTime">10</div>
-		          <button id="decreasePomo">-</button>
-		        </div>
-					</div><!--col-xs-6-->
-	    </div> <!-- row-->
+		<div class="app">
+
+	    <div class="counter">
+
+				<div id="break-time" class="counter__wrapper">
+		      <span class="counter__label"> Set Break Time</span>
+					<div class="counter__control">
+						<button>+</button>
+			      <span>3</span>
+			      <button>-</button>
+					</div>
+		    </div>
+
+				<div id="work-time" class="counter__wrapper">
+		      <span class="counter__label">Set Work Time</span>
+					<div class="counter__control">
+						<button>+</button>
+			      <span>10</span>
+			      <button>-</button>
+					</div>
+		    </div>
+
+	    </div>
+			<!-- time counter ends -->
+
 	   <div id="tagName">Session</div>
 	   <div id="pomoClock" class="startControl">10</div>
 
@@ -46,7 +51,9 @@
 		</div><!-- to do list -->
 
 	</div><!-- container ends -->
+
+		<!-- javascripts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="main.js"></script>
   </body>
-  <script src="jquery-3.1.1.min.js"></script>
-  <script src="main.js"></script>
 </html>

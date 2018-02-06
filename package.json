@@ -1,0 +1,19 @@
+{
+  "name": "task-tracking-assistant",
+  "version": "1.0.0",
+  "description": "When it's time to take a break, your thoughtful assistant will gently remind you not to work too hard ♥.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephanie56/jquery_task-tracking-assistant.git"
+  },
+  "author": "Stephanie Zeng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephanie56/jquery_task-tracking-assistant/issues"
+  },
+  "homepage": "https://github.com/stephanie56/jquery_task-tracking-assistant#readme"
+}
