@@ -5,13 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mia - Your Reliable Task Tracking Assistant</title>
   <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
   <body>
 		<div class="app">
 
 	    <div class="counter">
-
 				<div id="break-time" class="counter__wrapper">
 		      <span class="counter__label"> Set Break Time</span>
 					<div class="counter__control">
@@ -20,7 +20,6 @@
 			      <button>-</button>
 					</div>
 		    </div>
-
 				<div id="work-time" class="counter__wrapper">
 		      <span class="counter__label">Set Work Time</span>
 					<div class="counter__control">
@@ -29,21 +28,18 @@
 			      <button>-</button>
 					</div>
 		    </div>
-
 	    </div>
-			<!-- time counter ends -->
+			<!-- counter ends -->
 
-	   <div id="tagName">Session</div>
-	   <div id="pomoClock" class="startControl">10</div>
+	   <div class="active-task">Session</div>
 
-		 <div class="row">
-		 	<div class="col-xs-4 col-xs-offset-2">
-				<button id="start" class="startControl btn btn-lg btn-warning btn-group"><i class="glyphicon glyphicon-play"></i> Start</button>
-			</div><!-- start btn -->
-		 	<div class="col-xs-4" >
-				<button id="stop" class="btn btn-lg btn-danger btn-group"><i class="glyphicon glyphicon-stop"></i> Stop</button>
-			</div><!-- start btn -->
-		 </div><!-- row / start and stop btn -->
+	   <div class="timer">10</div>
+
+		<div class="timer-btn">
+			<button id="start" class="btn"><i class="fa fa-play-circle"></i> Start</button>
+			<button id="stop" class="btn"><i class="fa fa-pause-circle"></i> Stop</button>
+		</div>
+
 		<div id="todoList">
 			<input id="newtask" type="text">
 			<button id="addtodo" class="btn">Add Task</button>
